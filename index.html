@@ -8,99 +8,44 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
         }
-        /* Header style */
-        header {
-            height: 10%;
-            background-color: #FBEEAA;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #000000;
-        }
-        /* Image style inside the header */
-        header img {
-            height: 90%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        /* PDF container */
-        #pdf-container {
+
+        img {
             width: 100%;
-            overflow: auto;
-        }
-        #pdf-viewer {
-            width: 100%;
-        }
-        canvas {
+            height: auto;
             display: block;
-            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <div id="pdf-container">
-        <div id="pdf-viewer"></div>
-    </div>
-
-    <!-- PDF.js Library from jsDelivr CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.11.338/build/pdf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.11.338/build/pdf.worker.min.js"></script>
-
-    <script>
-    const url = 'menu.pdf';
-    let pdfDocument = null;
-    let canvasElements = [];
-
-    async function loadPDF() {
-        const pdfjsLib = window['pdfjsLib'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.11.338/build/pdf.worker.min.js';
-
-        pdfDocument = await pdfjsLib.getDocument(url).promise;
-        const pdfViewer = document.getElementById('pdf-viewer');
-        pdfViewer.innerHTML = '';
-        canvasElements = [];
-
-        for (let pageNum = 1; pageNum <= pdfDocument.numPages; pageNum++) {
-            const page = await pdfDocument.getPage(pageNum);
-            const canvas = renderPage(page);
-            pdfViewer.appendChild(canvas);
-            canvasElements.push(canvas);
-        }
-    }
-
-    function renderPage(page) {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-
-        // Ensure high resolution by scaling with device pixel ratio
-        const devicePixelRatio = window.devicePixelRatio || 1;
-        const viewport = page.getViewport({ scale: 1 }); // Start with scale 1 for base dimensions
-
-        // Calculate scale based on container width and apply device pixel ratio
-        const containerWidth = document.getElementById('pdf-container').offsetWidth;
-        const scale = (containerWidth / viewport.width) * devicePixelRatio;
-
-        const scaledViewport = page.getViewport({ scale: scale });
-
-        canvas.width = scaledViewport.width;  // Set actual canvas width
-        canvas.height = scaledViewport.height; // Set actual canvas height
-        canvas.style.width = `${scaledViewport.width / devicePixelRatio}px`;  // Set CSS width for proper layout
-        canvas.style.height = `${scaledViewport.height / devicePixelRatio}px`; // Set CSS height for proper layout
-
-        page.render({
-            canvasContext: context,
-            viewport: scaledViewport
-        }).promise.then(() => {
-            console.log(`Rendered page`);
-        });
-
-        return canvas;
-    }
-
-    loadPDF();
-    </script>
+    <img src="menu/page_menu_001.png" alt="page_menu_001.png" loading="eager">
+    <img src="menu/page_menu_002.png" alt="page_menu_002.png" loading="eager">
+    <img src="menu/page_menu_003.png" alt="page_menu_003.png" loading="eager">
+    <img src="menu/page_menu_004.png" alt="page_menu_004.png" loading="eager">
+    <img src="menu/page_menu_005.png" alt="page_menu_005.png" loading="eager">
+    <img src="menu/page_menu_006.png" alt="page_menu_006.png" loading="lazy">
+    <img src="menu/page_menu_007.png" alt="page_menu_007.png" loading="lazy">
+    <img src="menu/page_menu_008.png" alt="page_menu_008.png" loading="lazy">
+    <img src="menu/page_menu_009.png" alt="page_menu_009.png" loading="lazy">
+    <img src="menu/page_menu_010.png" alt="page_menu_010.png" loading="lazy">
+    <img src="menu/page_menu_011.png" alt="page_menu_011.png" loading="lazy">
+    <img src="menu/page_menu_012.png" alt="page_menu_012.png" loading="lazy">
+    <img src="menu/page_menu_013.png" alt="page_menu_013.png" loading="lazy">
+    <img src="menu/page_menu_014.png" alt="page_menu_014.png" loading="lazy">
+    <img src="menu/page_menu_015.png" alt="page_menu_015.png" loading="lazy">
+    <img src="menu/page_menu_016.png" alt="page_menu_016.png" loading="lazy">
+    <img src="menu/page_menu_017.png" alt="page_menu_017.png" loading="lazy">
+    <img src="menu/page_menu_018.png" alt="page_menu_018.png" loading="lazy">
+    <img src="menu/page_menu_019.png" alt="page_menu_019.png" loading="lazy">
+    <img src="menu/page_menu_020.png" alt="page_menu_020.png" loading="lazy">
+    <img src="menu/page_menu_021.png" alt="page_menu_021.png" loading="lazy">
+    <img src="menu/page_menu_022.png" alt="page_menu_022.png" loading="lazy">
+    <img src="menu/page_menu_023.png" alt="page_menu_023.png" loading="lazy">
+    <img src="menu/page_menu_024.png" alt="page_menu_024.png" loading="lazy">
+    <img src="menu/page_menu_025.png" alt="page_menu_025.png" loading="lazy">
+    <img src="menu/page_menu_026.png" alt="page_menu_026.png" loading="lazy">
+    <img src="menu/page_menu_027.png" alt="page_menu_027.png" loading="lazy">
+    <img src="menu/page_menu_028.png" alt="page_menu_028.png" loading="lazy">
+    <img src="menu/page_menu_029.png" alt="page_menu_029.png" loading="lazy">
 </body>
 </html>
